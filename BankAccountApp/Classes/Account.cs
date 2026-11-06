@@ -35,5 +35,15 @@ namespace BankAccountApp.Classes
             Balance -= amount;
             return true;
         }
+
+        public bool Transfer(Account targetAccount, decimal amount)
+        {
+            if (amount <= 0 || amount > Balance)
+                return false;
+
+            Balance -= amount;
+            targetAccount.Deposit(amount);
+            return true;
+        }
     }
 }
