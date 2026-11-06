@@ -24,5 +24,16 @@ namespace BankAccountApp.Classes
             Balance += amount;
             return true;
         }
+
+        public bool Withdraw(decimal amount)
+        {
+            if (amount <= 0)
+                return false;
+            if (amount > Balance)
+                return false;
+
+            Balance -= amount;
+            return true;
+        }
     }
 }
